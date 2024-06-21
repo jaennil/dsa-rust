@@ -12,11 +12,11 @@ struct Node {
 }
 
 impl LinkedList {
-    fn new() -> Self {
+    pub fn new() -> Self {
         Self { head: None }
     }
 
-    fn push(&mut self, value: i32) {
+    pub fn push(&mut self, value: i32) {
         let new_node = mem::replace(&mut self.head, None);
         self.head = Some(Box::new(Node {
             value,
@@ -24,7 +24,7 @@ impl LinkedList {
         }));
     }
 
-    fn pop(&mut self) -> Option<i32> {
+    pub fn pop(&mut self) -> Option<i32> {
         match mem::replace(&mut self.head, None) {
             None => None,
             Some(node) => {
